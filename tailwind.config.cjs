@@ -11,7 +11,7 @@ module.exports = {
       base: 16,
       lg: 19,
       xl: 20,
-      '2xl': 21
+      '2xl': 22
     },
     colors: {
       'black': '#0F1419',

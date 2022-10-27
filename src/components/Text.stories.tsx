@@ -5,15 +5,24 @@ export default {
 	title: 'Components/Text',
 	component: Text,
 	args: {
-		children: 'Twitter UI'
+		children: 'Twitter UI',
+		size: 'md'
 	},
+	argTypes: {
+		size: {
+			options: ['sm', 'md', 'base', 'lg'],
+			control: {
+				type: 'inline-radio'
+			}
+		}
+	}
 } as Meta<TextProps>
 
 export const Default: StoryObj<TextProps> = {}
 
 export const Small: StoryObj<TextProps> = {
 	args: {
-		size: 'sm'
+		size: 'sm',
 	}
 }
 
@@ -28,3 +37,25 @@ export const Large: StoryObj<TextProps> = {
 		size: 'lg'
 	}
 }
+
+export const CustomComponent: StoryObj<TextProps> = {
+	args: {
+		asChild: true,
+		children: (
+			<p> Paragraph </p>
+		)
+	},
+	argTypes: {
+		children: {
+			table: {
+				disable: true,
+			}
+		},
+		asChild: {
+			table: {
+				disable: true,
+			}
+		}
+	}
+}
+

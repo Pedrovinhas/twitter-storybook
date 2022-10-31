@@ -10,7 +10,7 @@ export default {
 	},
 	argTypes: {
 		size: {
-			options: ['sm', 'md', 'base', 'lg'],
+			options: ['xs', 'sm', 'md', 'base', 'lg'],
 			control: {
 				type: 'inline-radio'
 			}
@@ -19,6 +19,7 @@ export default {
 } as Meta<TextProps>
 
 export const Default: StoryObj<TextProps> = {}
+
 
 export const Small: StoryObj<TextProps> = {
 	args: {

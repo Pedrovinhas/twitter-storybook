@@ -36,7 +36,7 @@ export const Secondary: StoryObj<ButtonProps> = {
     },
     argTypes: {
         size: {
-            options: ['medium', 'small'],
+            options: ['medium', 'small', 'tiny'],
 			control: {
 				type: 'inline-radio'
 			}

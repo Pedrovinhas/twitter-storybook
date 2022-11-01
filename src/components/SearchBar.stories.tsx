@@ -1,14 +1,21 @@
 import { Meta, StoryObj } from '@storybook/react'
-import { SearchBar, SearchBarProps } from  './SearchBar';
+import { SearchBar, SearchBarRootProps } from  './SearchBar';
+import { MagnifyingGlass } from 'phosphor-react';
 
 export default {
     title: 'Components/SearchBar',
-    component: SearchBar,
+    component: SearchBar.Root,
     args: {
-        placeholder: 'Search Twitter'
+        children: [
+            <SearchBar.Icon>
+                <MagnifyingGlass/>
+            </SearchBar.Icon>,
+            <SearchBar.Input placeholder='Search Twitter' />
+           
+        ],
     },
     argTypes: {}
-} as Meta<SearchBarProps>
+} as Meta<SearchBarRootProps>
 
-export const Default: StoryObj<SearchBarProps> = {}
+export const Default: StoryObj<SearchBarRootProps> = {}
 

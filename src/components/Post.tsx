@@ -48,7 +48,7 @@ export function Post({ tweetContent, time, thumbnail }: TweetPostProps) {
             publishedAt: publishedAt
         }
      
-        setTweets(prevState => [...prevState, newTweet])
+        setTweets(prevState => [ newTweet, ...prevState])
         setTweet('')
     }
         

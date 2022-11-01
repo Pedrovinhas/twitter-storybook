@@ -19,7 +19,7 @@
 
 
 ## 👩‍💻 Tecnologias
-![React](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=react&logoColor=white)![SCSS](https://img.shields.io/badge/Sass-CC6699?style=for-the-badge&logo=sass&logoColor=white)![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)![Git](https://img.shields.io/badge/GIT-E44C30?style=for-the-badge&logo=git&logoColor=white)
+![React](https://img.shields.io/badge/React-222?style=for-the-badge&logo=react&logoColor=blue)![Typescript](https://img.shields.io/badge/typescript-3178c6?style=for-the-badge&logo=typescript&logoColor=white)![Tailwind](https://img.shields.io/badge/Tailwind%20css-4DC0B5?style=for-the-badge&logo=tailwindcss&logoColor=white)![Git](https://img.shields.io/badge/GIT-E44C30?style=for-the-badge&logo=git&logoColor=white)
 
 
 ### 📔 Bibliotecas
@@ -50,7 +50,7 @@
 
 ```bash
 # Clone o projeto
-$ git clone https://github.com/pedrovinhas/keepalive.git
+$ git clone https://github.com/pedrovinhas/twitter-storybook.git
 
 # Baixe as dependências
 $ npm install

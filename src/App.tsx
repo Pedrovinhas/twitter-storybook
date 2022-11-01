@@ -1,7 +1,3 @@
-import { Aside } from './components/Aside'
-import { Footer } from './components/Footer'
-import { Main } from './components/Main'
-import { SideMenu } from './components/SideMenu'
 import PathRoutes from './routes'
 import './styles/global.css'
 

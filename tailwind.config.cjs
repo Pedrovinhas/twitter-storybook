@@ -3,6 +3,7 @@ module.exports = {
   content: [
     './src/**/*.tsx'
   ],
+  darkMode: 'class',
   theme: {
     fontSize: {
       xs: 13,

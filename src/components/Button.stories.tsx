@@ -26,7 +26,15 @@ export const Primary: StoryObj<ButtonProps> = {
 			table: {
 				disable: true,
 			}
-		}
+		},
+		disabled: {
+			control: {
+			  type: 'boolean',
+			},
+		  },
+		onClick: {
+			action: 'click',
+		  },
     }
 }
 

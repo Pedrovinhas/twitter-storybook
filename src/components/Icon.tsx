@@ -4,10 +4,11 @@ import clsx from "clsx";
 import { Primary } from "./Button.stories";
 
 export interface IconProps  {
-    children: ReactNode
-    isDark?: boolean
-    selected?: boolean
-    size?: 'base' | 'medium'
+    children: ReactNode;
+    isDark?: boolean;
+    selected?: boolean;
+    size?: 'base' | 'medium';
+    className?: string;
 }  
 
 export function Icon(props: IconProps) {
@@ -24,7 +25,8 @@ export function Icon(props: IconProps) {
                 'fill' : props.selected ===true
 
 
-            }
+            },
+            props.className
         )} 
         >
             {props.children}

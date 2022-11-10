@@ -80,8 +80,11 @@ $ git clone https://github.com/pedrovinhas/twitter-storybook.git
 # Baixe as dependências
 $ npm install
 
-# Rode a aplicação
+# Para rodar a aplicação
 $ npm run dev
+
+$ Para rodar a documentação do Storybook
+$ npm run storybook
 ```
 
 ---

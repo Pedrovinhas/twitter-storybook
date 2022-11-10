@@ -32,28 +32,37 @@
 **Twitter Storybook** é o projeto da **5ª Sprint** e o **Desafio 5** do programa de bolsas da Compass Uol. O objetivo é construir um **storybook** e **aplicação** conforme o Twitter.
 
 ### ✒ **Layout**
+- Para mais informações sobre o Layout acesse o Storybook da aplicação.
 
 [![Figma](https://img.shields.io/badge/acessar%20layout%20no%20figma-222222?style=for-the-badge&logo=figma&logoColor=white)](https://www.figma.com/file/DqSemG9Z09LG9cAf8L8nUm/keepalive)
 
 ## 👩‍💻 Tecnologias
 
-![React](https://img.shields.io/badge/React-222?style=for-the-badge&logo=react&logoColor=blue)![Typescript](https://img.shields.io/badge/typescript-3178c6?style=for-the-badge&logo=typescript&logoColor=white)![Tailwind](https://img.shields.io/badge/Tailwind%20css-4DC0B5?style=for-the-badge&logo=tailwindcss&logoColor=white)![Git](https://img.shields.io/badge/GIT-E44C30?style=for-the-badge&logo=git&logoColor=white)
+![React](https://img.shields.io/badge/React-222?style=for-the-badge&logo=react&logoColor=blue)![Typescript](https://img.shields.io/badge/typescript-3178c6?style=for-the-badge&logo=typescript&logoColor=white)![Tailwind](https://img.shields.io/badge/Tailwind%20css-4DC0B5?style=for-the-badge&logo=tailwindcss&logoColor=white)![Git](https://img.shields.io/badge/GIT-E44C30?style=for-the-badge&logo=git&logoColor=white)![Storybook](https://img.shields.io/badge/storybook-ff528c?style=for-the-badge&logo=storybook&logoColor=white)
 
 ### 📔 Bibliotecas
 
-- React-Router-DOM
-- Date-fns
-- Storybook
+| lib   | desc.       |
+| :---------- | :--------- |
+| [Storybook](https://storybook.js.org/) | Documentação do Design System do projeto e criação de componentes | 
+| [React-Router-DOM](https://v5.reactrouter.com/web/guides/quick-start) |  Navegação entre as páginas | 
+| [Moment](https://momentjs.com/) | Para validação dos horários das postagens | 
+| [Yup](https://github.com/jquense/yup) | Validação do formulários na página de Login e Registro | 
 
 ## 📝 Requisitos funcionais
 
-### ✔ Requisitos Principais
+### ✔ Funcionalidades
 
 - [X] Telas
   - [X] Home
   - [X] Página 404
+  - [X] Login
+  - [X] Sign Up
 - [X] Dark-Mode
 - [X] Post dos Tweets
+- [X] Post dos Comentários
+- [X] Autenticação com Firebase
+- [X] Login Social
 
 ### 📱 Responsividade  
 

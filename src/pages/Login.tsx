@@ -15,14 +15,15 @@ export function Login() {
     const { handleLogin, signInWithGoogle, signInWithGithub, signedUser } = useAuth()
     const navigate = useNavigate()
 
-    if(signedUser) {
-        navigate('/')
-    }
+    // if(signedUser) {
+    //     navigate('/')
+    // }
     
-    // useEffect(() => {
-    //     if (signedUser) navigate('/')
-
-    //   }, [])
+    useEffect(() => {
+        if (signedUser) {
+            navigate('/')
+        }
+      }, [signedUser])
 
     const [email, setEmail] = useState<string>('')
     const [password, setPassword] = useState<string>('')
@@ -89,7 +90,7 @@ export function Login() {
                         </Link>
                     </Text>
                     <Text>
-                        <Link to=''>
+                        <Link to='/signup'>
                         Sign up to Twitter
                         </Link>
                     </Text>

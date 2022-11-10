@@ -1,5 +1,6 @@
 import { Aside } from "../components/Aside";
 import { Footer } from "../components/Footer";
+import { ModalRegister } from "../components/ModalRegister";
 import { PerfilSection } from "../components/PerfilSection";
 import { SideMenu } from "../components/SideMenu";
 import { useAuth } from "../contexts/AuthContext";
@@ -15,7 +16,15 @@ export function ProfilePage() {
           <PerfilSection/>
           <Aside/>
        </div>
-       { signedUser ? ''  :  <Footer/>}
+       { signedUser ? ''  :  
+       
+       <>
+       <div className='hidden' >
+      
+       </div>
+       <Footer/>
+       </>
+       }
       
        </div>
       )

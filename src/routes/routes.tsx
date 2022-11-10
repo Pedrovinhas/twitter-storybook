@@ -7,12 +7,14 @@ import { Login } from '../pages/Login';
 import { PrivateRoutes } from './PrivateRoutes';
 import { AuthProvider } from '../contexts/AuthContext';
 import { useState } from 'react';
+import { ThemeProvider } from '../contexts/ThemeContext';
 
 export default function PathRoutes() {
     
 
     return (
         <AuthProvider>
+            <ThemeProvider>
         <BrowserRouter>
             <Routes>
                 <Route element={<PrivateRoutes/>}>
@@ -24,6 +26,7 @@ export default function PathRoutes() {
                 <Route path="*" element={<PageNotFound/>}/>
             </Routes>
         </BrowserRouter>
+        </ThemeProvider>
         </AuthProvider>
     )
 }

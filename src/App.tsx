@@ -1,4 +1,4 @@
-import PathRoutes from './routes'
+import PathRoutes from './routes/routes'
 import './styles/global.css'
 
 export function App() {

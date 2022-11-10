@@ -1,0 +1,9 @@
+{
+    "name": {
+        "required": "Name is a required field"
+    },
+    "email": {
+        "required": "Email is a required field",
+        "email": "Email is invalid"
+    }
+}

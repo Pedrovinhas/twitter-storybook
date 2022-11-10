@@ -29,7 +29,8 @@ module.exports = {
       'dark-7': '#EBEEF0',
       'dark-8': '#F7F9FA',
       'primary-blue': '#1DA1F2',
-      'white': '#FFFFFF'
+      'white': '#FFFFFF',
+      'error': '#da4a43'
     },
     extend: {
       fontFamily: {

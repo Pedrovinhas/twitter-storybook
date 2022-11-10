@@ -10,6 +10,7 @@ export interface ButtonProps {
     className?: string
     onClick?: () => void;
     disabled?: boolean;
+    type?: any
 }
 
 export function Button({ children, asChild, variant = 'primary', size, className, onClick, disabled = false} : ButtonProps) {

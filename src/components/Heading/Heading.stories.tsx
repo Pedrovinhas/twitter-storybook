@@ -10,7 +10,7 @@ export default {
 	},
 	argTypes: {
 		size: {
-			options: ['lg', 'xl'],
+			options: ['lg', 'xl', '2xl', '3xl'],
 			control: {
 				type: 'inline-radio'
 			}
@@ -29,6 +29,18 @@ export const Large: StoryObj<HeadingProps> = {
 export const ExtraLarge: StoryObj<HeadingProps> = {
 	args: {
 		size: 'xl'
+	}
+}
+
+export const DoubleExtraLarge: StoryObj<HeadingProps> = {
+	args: {
+		size: '2xl'
+	}
+}
+
+export const TripleExtraLarge: StoryObj<HeadingProps> = {
+	args: {
+		size: '3xl'
 	}
 }
 

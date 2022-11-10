@@ -1,5 +1,3 @@
-import { format, formatDistanceToNow } from 'date-fns'
-import ptBR from 'date-fns/locale/pt-BR'
 
 import { Avatar } from "../Avatar";
 import { TextArea } from "../TextArea";
@@ -9,49 +7,72 @@ import {
     ChartBarHorizontal,
     Gif,
     ImageSquare,
-    Smiley
+    Smiley,
+    Trash,
+    X
 } from "phosphor-react";
 import { Icon } from "../Icon";
 import { Button } from "../Button";
-import React, { ChangeEvent, useState } from "react";
+import React, { ChangeEvent, useEffect, useState } from "react";
 import { Tweet } from "../Tweet";
-import Thumbnail2 from '../../../public/TweetImage-3.png'
+import { useTweets } from '../../contexts/TweetContext';
+import moment from "moment";
 
 export interface TweetPostProps {
     tweetContent: string;
-    time: string;
+    time: number;
     thumbnail?: string;
+    picture: any;
    
 }
 
-export function Post({ tweetContent, time, thumbnail }: TweetPostProps) {
-
+export function Post({ tweetContent, time, thumbnail, picture }: TweetPostProps) {
+    const storageUser = JSON.parse(sessionStorage.getItem('user') || '{}')
     const [tweets, setTweets] = useState<TweetPostProps[]>([])
     const [tweet, setTweet] = useState('')
+    const [image, setImage] = useState<null | Blob | any>()
 
-    const publishedAt = Date.now()
+    const imageToBase64 = (file: Blob) => {
+        return new Promise((resolve, reject) => {
+            const fileReader = new FileReader();
+            fileReader.onload = () => resolve(fileReader.result)
+            fileReader.onerror = error => reject(error)
+            fileReader.readAsDataURL(file)
+        })
+    }
 
-    const publishedDateFormatted = format(publishedAt, "d 'de' LLLL 'às' HH:mm'h'", {
-        locale: ptBR,
-    })
+    const createdAt = new Date()
 
-    const publishedDateRelativeToNow = formatDistanceToNow(publishedAt, {
-       addSuffix: true,
-       includeSeconds: true,
-       
-    })
+    const timeago = moment(createdAt).fromNow();
 
     function handleAddTweet() {
+      
+
         const newTweet = {
+            user: storageUser.email,
             tweetContent: tweet,
-            time: publishedDateRelativeToNow,
-            publishedAt: publishedAt
+            time: time,
+            picture: image,
+          
         }
-     
-        setTweets(prevState => [ newTweet, ...prevState])
-        setTweet('')
-    }
+
         
+        image ? imageToBase64(image).then(base64 => {
+            newTweet.picture = base64 as string;
+            console.log(newTweet.picture)
+            setTweets(prevState => [ newTweet, ...prevState])
+        }) : setTweets(prevState => [ newTweet, ...prevState])
+
+        console.log(newTweet)
+    
+        setTweet('')
+        setImage(null)
+        
+    }
+    
+     const items = JSON.parse(localStorage.getItem('tweets') as string)
+     console.log(items)
+
     
     function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
         e.preventDefault()
@@ -63,6 +84,8 @@ export function Post({ tweetContent, time, thumbnail }: TweetPostProps) {
     }
 
     const isNewTweetEmpty = tweet.length === 0
+
+    localStorage.setItem('tweets', JSON.stringify(tweets))
 
     return (
         <>
@@ -88,9 +111,21 @@ export function Post({ tweetContent, time, thumbnail }: TweetPostProps) {
                 </div>
                 <nav className='flex justify-between mb-2 '>
                     <div className="flex justify-between items-center gap-4">
-                        <Icon size='base'>
-                            <ImageSquare className='text-primary-blue cursor-pointer'/>
-                        </Icon>
+                        <span>
+                            <label htmlFor='file-input'>
+                             <ImageSquare size={24} className='text-primary-blue cursor-pointer' />
+                            </label>
+                           
+                            <input 
+                                onChange={(e) => {
+                                    if(e.target.files)
+                                    setImage(e.target.files[0])
+                                    // uploadImage
+                                }} 
+                                className='hidden' 
+                                id='file-input' 
+                                type='file'/>
+                        </span>
                         <Icon size='base'>
                             <Gif className='text-primary-blue cursor-pointer'/>
                         </Icon>
@@ -103,6 +138,16 @@ export function Post({ tweetContent, time, thumbnail }: TweetPostProps) {
                         <Icon size='base'>
                             <Calendar className='text-primary-blue cursor-pointer'/>
                         </Icon>
+                        { image && (
+                           
+                             <button className='relative' onClick={() => setImage(null)}>
+                                <Trash size={24} weight="bold" className='absolute top-2 right-2 text-error opacity-0 hover:opacity-100' />
+                                 <img className=' w-10 h-10 border-[2px] border-primary-blue border-opacity-60 rounded-md' src={URL.createObjectURL(image)} alt="" />
+                               
+                             </button>
+                       
+                        )}
+                       
                     </div>
                     <Button disabled={isNewTweetEmpty} onClick={handleAddTweet} size="tiny">
                         Tweet
@@ -115,9 +160,10 @@ export function Post({ tweetContent, time, thumbnail }: TweetPostProps) {
         {
             tweets.map(tweet => (
                 <Tweet 
-                    tweet={tweet.tweetContent} 
-                    time={tweet.time}
-                    src={Thumbnail2}
+                    // tweet={tweet.tweetContent} 
+                    tweetContent={tweet.tweetContent}
+                    time={timeago}
+                    src={tweet.picture}
                     />
             ))
         }

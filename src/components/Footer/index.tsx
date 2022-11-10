@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { Button } from "../Button";
 import { Heading } from "../Heading";
 import { Text } from '../Text'
@@ -16,12 +17,16 @@ export function Footer(){
                 </Text>
             </div>
             <div className="flex gap-2 justify-self-end mr-4"  >
+            <Link to='/login'>
                 <Button variant='terciary'  size="tiny">
                     Log in
                 </Button>
+                </Link>
+                <Link to='*'>
                 <Button variant='quaternary' className='bg-white 'size="tiny">
                     Sign up
                 </Button>
+                </Link>
             </div>
         </div>
     )

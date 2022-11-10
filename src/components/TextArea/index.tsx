@@ -1,7 +1,4 @@
 import { TextareaHTMLAttributes, ReactNode } from "react";
-
-
-
 export interface TextAreaRootProps {
   children: ReactNode;
 }

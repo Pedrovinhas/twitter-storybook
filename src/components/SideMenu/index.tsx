@@ -4,13 +4,13 @@ import { Heading } from "../Heading";
 import { Icon } from "../Icon";
 import * as ToggleGroup from '@radix-ui/react-toggle-group';
 import { Profile } from "../Profile";
-import { MenuItem } from "../MenuItem";
 import { Link } from 'react-router-dom';
 
 export interface SideMenuProps {
+    defaultValue: string;
 }
 
-export function SideMenu(props: SideMenuProps) {
+export function SideMenu({ defaultValue = '1' }: SideMenuProps) {
    return (
     <div className=" w-[150px] max-w-[275px] xl:w-[275px]">
         <div className='flex flex-col h-[900px] justify-between sticky top-0 left-0 mr-4 max-h-screen'>
@@ -18,10 +18,10 @@ export function SideMenu(props: SideMenuProps) {
                 <div className='mb-4 flex flex-col items-end  xl:items-start'>
                 <Icon children={<TwitterLogo weight='fill' className='dark:text-white'color="#1DA1F2"/>} size='medium'/>
                 </div>
-                <ToggleGroup.Root defaultValue='1' className="flex flex-col items-end   xl:items-start" type="single">
+                <ToggleGroup.Root defaultValue={defaultValue}className="flex flex-col items-end   xl:items-start" type="single">
         
                 <Link to='/'>
-                    <ToggleGroup.Item className='dark:text-white data-[state=on]:text-primary-blue data-[state=on]:dark:text-primary-blue flex items-center justify-start gap-5 h-14 hover:bg-dark-7 hover:rounded-full dark:hover:bg-dark-4 xl:w-32' value="1" >
+                    <ToggleGroup.Item  className='dark:text-white data-[state=on]:text-primary-blue data-[state=on]:dark:text-primary-blue flex items-center justify-start gap-5 h-14 hover:bg-dark-7 hover:rounded-full dark:hover:bg-dark-4 xl:w-32' value="1" >
                         <Icon size='medium' children={<House className='' />}/>
                         <Heading size="lg" className=' hidden xl:block'>
                             Home
@@ -76,7 +76,7 @@ export function SideMenu(props: SideMenuProps) {
                 </ToggleGroup.Item>
                 </Link>
 
-                <Link to='*'>
+                <Link to='/profile'>
                 <ToggleGroup.Item className='dark:text-white data-[state=on]:text-primary-blue data-[state=on]:dark:text-primary-blue flex items-center justify-start gap-5 h-14  hover:bg-dark-7 dark:hover:bg-dark-4 hover:rounded-full xl:w-44' value="7" >
                     <Icon size='medium' children={<User className='' />}/>
                     <Heading size="lg" className=' hidden xl:block'>
